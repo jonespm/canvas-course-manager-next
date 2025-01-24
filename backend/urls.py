@@ -28,4 +28,5 @@ urlpatterns = [
     path("init/<uuid:registration_uuid>/", OIDCLoginInitView.as_view(), name="init"),
     path("ltilaunch", CCMLTILaunchView.as_view(), name="ltilaunch"),
     path('oauth/', include('canvas_oauth.urls')),
+    path('redirectOAuth', views.redirect_oauth_view, name='redirect_oauth'),
 ]
