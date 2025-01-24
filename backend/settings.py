@@ -227,12 +227,10 @@ ONE_TRUST_DOMAIN = os.getenv('ONE_TRUST_DOMAIN', None)
 
 HELP_URL = os.getenv('HELP_URL', 'https://ccm.tl-pages.tl.it.umich.edu')
 
-# Canvas URL
-CANVAS_INSTANCE_URL = os.getenv('CANVAS_INSTANCE_URL', 'https://canvas.instructure.com')
 
 DEBUGPY_ENABLE = os.getenv('DEBUGPY_ENABLE', False)
 
-#Canvas OAuth settings
+# Canvas OAuth settings
 CANVAS_OAUTH_CLIENT_ID = os.getenv('CANVAS_OAUTH_CLIENT_ID', '12342')
 CANVAS_OAUTH_CLIENT_SECRET = os.getenv('CANVAS_OAUTH_CLIENT_SECRET', 'ccm')
 CANVAS_OAUTH_CANVAS_DOMAIN = os.getenv('CANVAS_OAUTH_CANVAS_DOMAIN', 'canvas.test.instructure.com')

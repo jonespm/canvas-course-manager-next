@@ -28,7 +28,7 @@ class CCMGlobalsTests(SimpleTestCase):
         context = ccm_globals(self.request)
 
         self.assertEqual(context['ccm_globals']['environment'], 'development' if settings.DEBUGPY_ENABLE else 'production')
-        self.assertEqual(context['ccm_globals']['canvasURL'], settings.CANVAS_INSTANCE_URL)
+        self.assertEqual(context['ccm_globals']['canvasURL'], f"https://{settings.CANVAS_OAUTH_CANVAS_DOMAIN}")
         self.assertEqual(context['ccm_globals']['user']['loginId'], 'jdoe')
         self.assertEqual(context['ccm_globals']['user']['isStaff'], True)
         self.assertEqual(context['ccm_globals']['user']['hasCanvasToken'], True)
