@@ -16,7 +16,8 @@ class CCMGlobalsTests(SimpleTestCase):
         }
 
     @patch('backend.ccm.context_processors.GlobalsUserSerializer')
-    def test_ccm_globals_authenticated_user(self, mock_globals_user_serializer):
+    @patch('backend.ccm.context_processors.CanvasOAuth2Token.objects.filter')
+    def test_ccm_globals_authenticated_user(self, mock_canvas_oauth_filter, mock_globals_user_serializer):
         mock_user = MagicMock(is_authenticated=True)
         self.request.user = mock_user
 
@@ -24,6 +25,7 @@ class CCMGlobalsTests(SimpleTestCase):
             'loginId': 'jdoe',
             'isStaff': True
         }
+        mock_canvas_oauth_filter.return_value.exists.return_value = True
 
         context = ccm_globals(self.request)
 
